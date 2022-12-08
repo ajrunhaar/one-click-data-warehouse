@@ -1,11 +1,23 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
-import { OneClickDataWarehouseStack } from '../lib/one-click-data-warehouse-stack';
+import {NameSpaceStack} from '../lib/namespace';
+import {WorkGroupStack} from "../lib/workgroup";
+import {ocdwConfig} from "../config";
 
 const app = new cdk.App();
-new OneClickDataWarehouseStack(app, 'OneClickDataWarehouseStack', {
 
-  env: { account: '339880448568', region: 'eu-west-1' },
+const { namespaceName, workgroupName, databaseName, allowedIps, account, region} = ocdwConfig
 
+new NameSpaceStack(app, 'OneClickDataWarehouseNamespaceStack', {
+  env: { account , region },
+  namespaceName,
+  databaseName
+});
+
+new WorkGroupStack(app, 'OneClickDataWarehouseWorkGroupStack', {
+  env: { account, region },
+  namespaceName,
+  workgroupName,
+  allowedIps
 });
