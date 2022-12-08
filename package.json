@@ -5,24 +5,26 @@
     "one-click-data-warehouse": "bin/one-click-data-warehouse.js"
   },
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
-    "test": "jest",
-    "cdk": "cdk"
+    "deploy:workgroups": "cdk deploy OneClickDataWarehouseWorkGroupStack",
+    "deploy:namespaces": "cdk deploy OneClickDataWarehouseNamespaceStack",
+    "deploy:all": "npm-run-all deploy:namespaces deploy:workgroups",
+
+    "destroy:workgroups": "cdk destroy OneClickDataWarehouseWorkGroupStack",
+    "destroy:namespaces": "cdk destroy OneClickDataWarehouseNamespaceStack",
+    "destroy:all": "npm-run-all destroy:workgroups destroy:namespaces"
   },
   "devDependencies": {
-    "@aws-cdk/aws-redshiftserverless": "^1.178.0",
     "@types/jest": "^27.5.2",
     "@types/node": "10.17.27",
     "@types/prettier": "2.6.0",
-    "aws-cdk": "2.47.0",
+    "aws-cdk-lib": "^2.54.0",
     "jest": "^27.5.1",
+    "npm-run-all": "^4.1.5",
     "ts-jest": "^27.1.4",
     "ts-node": "^10.9.1",
     "typescript": "~3.9.7"
   },
   "dependencies": {
-    "aws-cdk-lib": "2.47.0",
     "constructs": "^10.0.0",
     "source-map-support": "^0.5.21"
   }
