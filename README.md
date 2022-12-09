@@ -1,16 +1,18 @@
 # Very basic Redshift Serverless deployment
 
-This project will deploy the most basic implementation of Redshift serverless.
+This project will deploy the most basic implementation of Redshift Serverless in a single stack. The stack includes:
 
-It consists of two stacks:
+- A VPC with private and public subnets
+- A Redshift Serverless Namespace
+- A publicly accessible Redshift Serverless Workgroup
+- A security group to limit access to the Workgroup to whitelisted IPs
 
-- Redshift Serverless Namespaces - Construct for storage
-- Redshift Serverless Workgroup - Construct for compute
 
 ## Useful commands
 
-- `npm run deploy:all` deploys both the Namespace and Workgroups stacks
-- `npm run destroy:all` destroys both the Namespace and Workgroups stacks
+- `npm run deploy` deploys both the Namespace and Workgroups stacks
+- `npm run destroy` destroys both the Namespace and Workgroups stacks
+- `npm run format` make all of the files prettier
 
 # How to deploy
 
@@ -20,8 +22,8 @@ It consists of two stacks:
 - Set the values in `config.ts'
   - Your AWS account ID
   - Allowed IP Addresses
-- run `npm ci` - to install all of the necessary packages
-- run `npm run deploy:all` - to deploy the stacks to your AWS account
+- run `npm ci` - to install the necessary packages
+- run `npm run deploy` - to deploy the stacks to your AWS account
 
 ## How to Redshift Serverless
 
@@ -31,9 +33,4 @@ You can connect to Redshift:
 - Using an appropriate tool with an ODBC or JDBC driver. The connection string you can find in AWS Console, in the Redshift section under the
   appropriate workspace
   - Note, you will have to change the admin password to something you know.
-
-## Notes
-
-- Two stacks are used because the Namespace and Workgroups constructs cannot be deployed in the same stack. The Workgroups depend on pre-existing
-  Namespaces. When deployed in the same stack the Namespace does not yet exist to which the Workgroup refers. It is likely that AWS will fix this
-  soon.
+  

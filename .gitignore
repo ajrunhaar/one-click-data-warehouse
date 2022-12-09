@@ -1,7 +1,8 @@
 !jest.config.js
 *.d.ts
 .cdk.staging
-/cdk.context.json
+cdk.context.json
+config.ts
 *.js
 node_modules
 cdk.out

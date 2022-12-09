@@ -5,12 +5,8 @@
     "one-click-data-warehouse": "bin/one-click-data-warehouse.js"
   },
   "scripts": {
-    "deploy:workgroups": "cdk deploy OneClickDataWarehouseWorkGroupStack",
-    "deploy:namespaces": "cdk deploy OneClickDataWarehouseNamespaceStack",
-    "deploy:all": "npm-run-all deploy:namespaces deploy:workgroups",
-    "destroy:workgroups": "cdk destroy OneClickDataWarehouseWorkGroupStack",
-    "destroy:namespaces": "cdk destroy OneClickDataWarehouseNamespaceStack",
-    "destroy:all": "npm-run-all destroy:workgroups destroy:namespaces",
+    "deploy": "cdk deploy OneClickDataWarehouse",
+    "destroy": "cdk destroy OneClickDataWarehouse",
     "format": "npx prettier --write ."
   },
   "devDependencies": {
