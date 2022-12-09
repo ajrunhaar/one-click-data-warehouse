@@ -24,7 +24,7 @@ This project will deploy the most basic implementation of Redshift Serverless in
 - run `npm ci` - to install the necessary packages
 - run `npm run deploy` - to deploy the stacks to your AWS account
 
-## How to Redshift Serverless
+## How to connect to Redshift Serverless
 
 You can connect to Redshift:
 
