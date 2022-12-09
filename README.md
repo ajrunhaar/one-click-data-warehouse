@@ -7,7 +7,6 @@ This project will deploy the most basic implementation of Redshift Serverless in
 - A publicly accessible Redshift Serverless Workgroup
 - A security group to limit access to the Workgroup to whitelisted IPs
 
-
 ## Useful commands
 
 - `npm run deploy` deploys both the Namespace and Workgroups stacks
@@ -19,7 +18,7 @@ This project will deploy the most basic implementation of Redshift Serverless in
 - Get the secret access id and secret access key from AWS IAM for a user with the rights to use cloudformation and deploy Redshift, VPCs and Security
   Groups
   - Add the keys to `~/.aws/credentials`
-- Set the values in `config.ts'
+- Create file `config.ts`, copy contents of `config.template.ts` and et the values in `config.ts':
   - Your AWS account ID
   - Allowed IP Addresses
 - run `npm ci` - to install the necessary packages
@@ -33,4 +32,3 @@ You can connect to Redshift:
 - Using an appropriate tool with an ODBC or JDBC driver. The connection string you can find in AWS Console, in the Redshift section under the
   appropriate workspace
   - Note, you will have to change the admin password to something you know.
-  
